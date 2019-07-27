@@ -17,6 +17,8 @@
     </h3>
     <p><?= htmlspecialchars($post['resume']); ?></p>
 
+    <p><a href="post_controller.php?id=<?= htmlspecialchars($post['id']); ?>">Lire l'article</a></p>
+
     <?PHP  } ?>
     <?php $result->free_result()?>
 
