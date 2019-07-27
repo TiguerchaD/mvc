@@ -1,7 +1,7 @@
 <?php
     require_once('model.php');
 
-    $result = get_posts();
+    $posts = get_posts();
     
     
 

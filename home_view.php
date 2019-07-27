@@ -1,17 +1,9 @@
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
+    <?php ob_start();?>
     <h1> Mon blog</h1>
     <h2>Derniers articles </h2>
 
-    <?php while ($post = $result->fetch_assoc()) { ?>
+    <?php while ($post = $posts->fetch_assoc()) { ?>
     <h3> <?= htmlspecialchars($post['titre']); ?>  
     <em> - <?= htmlspecialchars($post['date_pub']); ?></em>
     </h3>
@@ -20,11 +12,9 @@
     <p><a href="post_controller.php?id=<?= htmlspecialchars($post['id']); ?>">Lire l'article</a></p>
 
     <?PHP  } ?>
-    <?php $result->free_result()?>
 
+    <?php $posts->free_result()?>
+    <?php $content = ob_get_clean(); ?>
+    <?php require('template.php'); ?>
 
-
-</body>
-
-</html>
 
